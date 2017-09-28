@@ -9,5 +9,5 @@ target_include_directories(sbe INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 get_directory_property(has_parent PARENT_DIRECTORY)
 if (has_parent)
-    set(SBE_JAR "${CMAKE_CURRENT_SOURCE_DIR}/bin/sbe-all-1.7.1.jar" PARENT_SCOPE)
+    set(SBE_JAR "${CMAKE_CURRENT_SOURCE_DIR}/bin/sbe-all-1.7.2-SNAPSHOT.jar" PARENT_SCOPE)
 endif()
