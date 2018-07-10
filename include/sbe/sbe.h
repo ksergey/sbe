@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2017 Real Logic Ltd.
+ * Copyright 2013-2018 Real Logic Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@
 #include <cstdint>
 #include <limits>
 
-namespace sbe {
+namespace sbe
+{
 
 /*
  * Define some byte ordering macros
@@ -63,7 +64,7 @@ namespace sbe {
 #else
     #define SBE_BOUNDS_CHECK_EXPECT(exp,c) (__builtin_expect(exp,c))
 #endif
-   
+
 #define SBE_NULLVALUE_INT8 (std::numeric_limits<std::int8_t>::min)()
 #define SBE_NULLVALUE_INT16 (std::numeric_limits<std::int16_t>::min)()
 #define SBE_NULLVALUE_INT32 (std::numeric_limits<std::int32_t>::min)()
@@ -73,7 +74,22 @@ namespace sbe {
 #define SBE_NULLVALUE_UINT32 (std::numeric_limits<std::uint32_t>::max)()
 #define SBE_NULLVALUE_UINT64 (std::numeric_limits<std::uint64_t>::max)()
 
-namespace MetaAttribute {
+typedef union sbe_float_as_uint_u
+{
+    float fp_value;
+    std::uint32_t uint_value;
+}
+sbe_float_as_uint_t;
+
+typedef union sbe_double_as_uint_u
+{
+    double fp_value;
+    std::uint64_t uint_value;
+}
+sbe_double_as_uint_t;
+
+namespace MetaAttribute
+{
 
 enum Attribute
 {
@@ -84,7 +100,6 @@ enum Attribute
 };
 
 }
-
 }
 
 #endif
