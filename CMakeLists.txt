@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 
-# project name
+# Project name
 project(sbe)
 
-# create library entry
+# Create library entry
 add_library(sbe INTERFACE)
 add_library(ksergey::sbe ALIAS sbe)
 target_include_directories(sbe INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
