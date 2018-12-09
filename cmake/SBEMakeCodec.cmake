@@ -7,9 +7,6 @@ function(sbe_make_codec schema target_ns target_var)
 
     set(output "${output_dir}/${target_ns}/MessageHeader.h")
 
-    message(STATUS ${target_var})
-    message(STATUS ${output})
-
     add_custom_command(OUTPUT "${output}"
         COMMAND ${Java_JAVA_EXECUTABLE}
             "-Dsbe.output.dir=${output_dir}"
