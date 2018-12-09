@@ -11,5 +11,9 @@ function(sbe_make_codec schema target_ns target_var)
             "-Dsbe.target.language=CPP"
             "-jar" "${SBE_JAR}" "${schema}"
         DEPENDS "${schema}")
-    add_custom_target(${target_var} DEPENDS "${output}" COMMENT "Updating ${target_ns} coder")
+
+    add_library(${target_var} INTERFACE)
+    target_include_directories(${target_var} INTERFACE ${output_dir})
+    add_dependencies(${target_var} ${output})
+    target_link_libraries(${target_var} INTERFACE ksergey::sbe)
 endfunction()
