@@ -13,7 +13,7 @@ if (has_parent)
     set(SBE_JAR "${CMAKE_CURRENT_SOURCE_DIR}/bin/sbe-all-1.10.0.jar" PARENT_SCOPE)
 endif()
 
-function(sbe_make_codec  output_dir schema target_ns target_var)
+macro(sbe_make_codec output_dir schema target_ns target_var)
     file(MAKE_DIRECTORY ${output_dir})
     set(output "${output_dir}/${target_ns}/MessageHeader.h")
     message(STATUS ${target_var})
